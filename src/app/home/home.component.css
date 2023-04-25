@@ -1,0 +1,17 @@
+.div-header {
+    display: block;
+    text-align: center;
+    align-items: center;
+}
+
+.div-layout {
+    display: block;
+    text-align: left;
+    align-items: left;
+}
+
+.div-footer {
+    display: block;
+    text-align: center;
+    align-items: center;
+}

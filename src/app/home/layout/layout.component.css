@@ -1,0 +1,127 @@
+.div-header {
+    display: block;
+    text-align: center;
+    align-items: center;
+}
+/*
+    DEMO STYLE
+*/
+mat-toolbar {
+  background: #00315b;
+  color: white;
+}
+
+mat-sidenav {
+  margin: 16px;
+  width: 200px;
+  border-right: none;
+  background: #00315b;
+  color: white;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.content {
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 32px;
+
+  padding: 16px;
+
+  overflow: auto;
+}
+
+mat-sidenav-container {
+   height: calc(100vh - 65px);
+  /* height: 100%; */
+}
+
+.menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+  
+}
+mat-icon {
+  margin-right: 8px;
+}
+
+.avatar {
+  margin-top: 16px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.name {
+  margin-top: 15px;
+  margin-right: 100px;
+  font-weight: normal;
+  text-transform: capitalize;
+}
+
+
+.designation {
+  font-size: 0.7rem;
+  color:#f8f9fa;
+  line-height: 11px;
+}
+
+
+.nav-items-right{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 1rem;
+}
+
+mat-divider {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ACCORDIAN STYLE START */
+mat-expansion-panel{
+  background: #002b5c;
+}
+mat-expansion-panel-header,
+.mat-expansion-panel-header.mat-expanded {
+  padding: 0px 9px 0px 9px;
+  height: 32px;
+  background: #002b5c;
+}
+mat-panel-title {
+  color: white;
+}
+div.mat-expansion-panel-content{
+  background: #002b5c !important;
+  color: white !important;
+}
+::ng-deep .mat-expansion-panel-body {
+  padding: 0 8px 7px !important;
+  background: #002b5c !important ;
+  color: white !important;
+}
+::ng-deep.mat-expansion-panel-header:hover,.mat-expansion-panel-header:focus{
+  background: rgb(8 58 116) !important;
+}
+::ng-deep.mat-button-wrapper{
+  font-size: 12px;
+}
+::ng-deep.mat-expansion-indicator::after{
+  color: white;
+}
+
+::ng-deep .bg-color{
+  background: #002b5c ;
+  
+}
+
+::ng-deep .text-color{
+  color: aliceblue !important;
+}

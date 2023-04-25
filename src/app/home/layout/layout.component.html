@@ -1,0 +1,70 @@
+<mat-toolbar class="mat-elevation-z8">
+    <div class="nav-items-left">
+        <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+            <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+            <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+        </button>
+        PCT
+        <button mat-icon-button *ngIf="sidenav.mode === 'side'" (click)="sidenav.toggle()">
+            <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+            <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+        </button>
+    </div>
+    <div class="nav-items-right">
+        <div class="name">
+            <!-- <h1>{{AuthResponse?.fName}} {{AuthResponse?.lName}}
+                <p class="designation">{{AuthResponse?.roleName}}</p>
+            </h1> -->
+        </div>
+        <!-- <div>
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+            </button> 
+            <mat-menu #menu="matMenu" class="bg-color">
+                <button mat-menu-item (click)="logout()">
+                    <mat-icon class=text-color>
+                        power_settings_new
+                    </mat-icon>
+                    <span class=text-color>Log Out</span>
+                </button>
+
+                <button mat-menu-item  (click)="openDialog()">
+                    <mat-icon class=text-color>person</mat-icon>
+                    <span class=text-color>Profile</span>
+                </button>
+            </mat-menu>       
+        </div> -->
+    </div>
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+        <mat-accordion>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Page Master
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <button mat-button class="menu-button" routerLink="/home/weather">
+                    <span>Page 1</span>
+                </button>
+                <button mat-button class="menu-button" routerLink="/home/weather">
+                    <span>Page 2</span>
+                </button>
+                <button mat-button class="menu-button" routerLink="/home/weather">
+                    <span>Page 3</span>
+                </button>
+                <button mat-button class="menu-button" routerLink="/home/weather">
+                    <span>Page 4</span>
+                </button>
+            </mat-expansion-panel>
+        </mat-accordion>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z8">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
