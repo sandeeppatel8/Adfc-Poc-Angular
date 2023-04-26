@@ -3,14 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { LayoutComponent } from './home/layout/layout.component';
+import { HomeComponent } from './components/home/home.component';
+import { LayoutComponent } from './components/home/layout/layout.component';
 import { MaterialModule } from './common/modules/mat-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HeaderComponent } from './home/header/header.component';
-import { FooterComponent } from './home/footer/footer.component';
+import { HeaderComponent } from './components/home/header/header.component';
+import { FooterComponent } from './components/home/footer/footer.component';
 import { WeatherComponent } from './components/weather/weather.component';
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";

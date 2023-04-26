@@ -4,7 +4,7 @@ import { MsalGuard } from '@azure/msal-angular';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { WeatherComponent } from './components/weather/weather.component';
-import { HomeComponent } from './home/home.component'
+import { HomeComponent } from './components/home/home.component'
 const routes: Routes = [
   {
     path: 'login', component: LoginComponent

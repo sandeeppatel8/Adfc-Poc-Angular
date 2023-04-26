@@ -1,9 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MsalBroadcastService, MsalGuardConfiguration, MsalService, MSAL_GUARD_CONFIG } from '@azure/msal-angular';
-import { InteractionStatus, RedirectRequest } from '@azure/msal-browser';
+import { AuthenticationResult, InteractionStatus, InteractionType, PopupRequest, RedirectRequest } from '@azure/msal-browser';
 import { filter, Subject, takeUntil } from 'rxjs';
 import { AzureAdService } from 'src/app/service/azure-ad.service';
+import { StorageService } from '../../service/storage.service'
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
     private msalBroadCastService: MsalBroadcastService,
     private authService: MsalService,
     private azureAdSerice: AzureAdService,
-    private router: Router) {
+    private router: Router,
+    private storageService: StorageService) {
   }
 
   ngOnInit(): void {
@@ -32,21 +34,45 @@ export class LoginComponent implements OnInit {
 
         if (this.isUserLoggedIn) {
           this.userName = this.authService.instance.getAllAccounts()[0].name;
-          var userInfo = this.authService.instance.getAllAccounts()[0];
-          console.log('UserProfile =>', userInfo);
+          var userEmail = this.authService.instance.getAllAccounts()[0].username;
+          this.storageService.setItem("msal_user_email_demo=>", userEmail);
 
         }
         this.azureAdSerice.isUserLoggedIn.next(this.isUserLoggedIn);
       })
   }
 
-  login() {
+  /*login() {
     if (this.msalGuardConfig.authRequest) {
       //this.authService.loginRedirect({ ...this.msalGuardConfig.authRequest } as RedirectRequest)
       this.router.navigate(['/home']);
     }
     else {
       this.authService.loginRedirect();
+    }
+  }*/
+
+
+  login() {
+    if (this.msalGuardConfig.interactionType === InteractionType.Popup) {
+      if (this.msalGuardConfig.authRequest) {
+        this.authService.loginPopup({ ...this.msalGuardConfig.authRequest } as PopupRequest)
+          .subscribe((response: AuthenticationResult) => {
+            this.authService.instance.setActiveAccount(response.account);
+            this.router.navigate(['/home']);
+          });
+      } else {
+        this.authService.loginPopup()
+          .subscribe((response: AuthenticationResult) => {
+            this.authService.instance.setActiveAccount(response.account);
+          });
+      }
+    } else {
+      if (this.msalGuardConfig.authRequest) {
+        this.authService.loginRedirect({ ...this.msalGuardConfig.authRequest } as RedirectRequest);
+      } else {
+        this.authService.loginRedirect();
+      }
     }
   }
 
