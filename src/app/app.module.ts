@@ -19,6 +19,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { IPublicClientApplication, PublicClientApplication, InteractionType } from '@azure/msal-browser';
 import { MsalGuard, MsalInterceptor, MsalBroadcastService, MsalInterceptorConfiguration, MsalModule, MsalService, MSAL_GUARD_CONFIG, MSAL_INSTANCE, MSAL_INTERCEPTOR_CONFIG, MsalGuardConfiguration, MsalRedirectComponent } from '@azure/msal-angular';
 import { msalConfig, loginRequest, protectedResources } from './auth-config';
+import { LoginComponent } from './components/login/login.component';
 
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication(msalConfig);
@@ -47,7 +48,8 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     LayoutComponent,
     HeaderComponent,
     FooterComponent,
-    WeatherComponent
+    WeatherComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

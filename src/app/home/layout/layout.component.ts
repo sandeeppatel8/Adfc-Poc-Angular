@@ -5,6 +5,8 @@ import { Router, NavigationEnd } from '@angular/router';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { delay, filter } from 'rxjs/operators';
+import { MsalService } from '@azure/msal-angular';
+import { environment } from 'src/environments/environment';
 
 @UntilDestroy()
 @Component({
@@ -15,10 +17,11 @@ import { delay, filter } from 'rxjs/operators';
 export class LayoutComponent implements OnInit {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
-  
+
   constructor(private observer: BreakpointObserver,
     private router: Router,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private authService: MsalService, ) { }
 
   ngOnInit(): void {
   }
@@ -45,6 +48,10 @@ export class LayoutComponent implements OnInit {
         this.sidenav.close();
       }
     });
+  }
+
+  logout() {
+    this.authService.logoutRedirect({ postLogoutRedirectUri: environment.redirectUrl });
   }
 
 }

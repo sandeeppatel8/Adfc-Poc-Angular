@@ -1,0 +1,55 @@
+:host {
+    height: 100%;
+}
+:ng-deep :host  {
+    height: 100%;
+}
+.example-container .mat-form-field+.mat-form-field {
+    margin-left: 8px;
+}
+
+.login-main{
+    margin-top: 200px;
+    margin-left: 424px;
+    width: 376px;
+}
+mat-card{
+    min-width: 40%;
+    align-items: center;
+    text-align: center;
+}
+
+  
+  .bg {
+    /* The image used */
+    background-image: url("../../../assets/images/indigo.jpg");
+  
+    /* Full height */
+    height: 100% !important; 
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+  }
+.login-conect{
+    height: 100% !important; 
+}
+
+.center {
+    line-height: 200px;
+    height: 200px;
+    border: 3px solid green;
+    text-align: center;
+  }
+
+  .login-cointainer{
+    height: 280px;
+    width: 350px;
+    margin: auto;
+    margin-top: 160px;
+    /* margin-left: auto; */
+    border: 3px solid #132691;
+    border-radius: 12px !important;
+  }
